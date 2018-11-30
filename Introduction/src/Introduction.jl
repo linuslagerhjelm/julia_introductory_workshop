@@ -3,7 +3,7 @@ module Introduction
 
 "Adds a one to the provided argument"
 add1(x::Number) = x + 1
-add1(x::Array{Int64}) = x .+ 1
+add1(x::Array{T}) where T <: Number = x .+ 1
 
 "Performs the division between x and why where x is numerator and y is 
 denominator but returns the answer truncated to 0 decimals"
