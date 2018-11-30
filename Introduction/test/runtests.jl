@@ -1,6 +1,6 @@
 using Test
 using Introduction
 
-include("test_basics.jl")
+include("basics.jl")
 
 
