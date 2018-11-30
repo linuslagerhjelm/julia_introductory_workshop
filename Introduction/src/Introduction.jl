@@ -16,10 +16,32 @@ function in_range(x::Number, bounds...)
     upper = bounds[end]
     lower <= x < upper
 end
-function in_range(x::Array{Int64}, bounds...)
+function in_range(x::Array{T}, bounds...) where T <: Number
     lower = length(bounds) < 2 ? 0 : bounds[1]
     upper = bounds[end]
     lower .<= x .< upper
 end
+
+"Converts a string to an array of characters"
+to_char_array(s::String)::Vector{Char} = [s...]
+
+"Produces a string that consists of the provided string concattenated on itself n times.
+Note that char is just a special case of a string and should be accepted as well"
+self_concat(c, n::Int64)::String = c ^ n
+
+"Concatenates s1, s2, ..., sn into s1s2...sn"
+concatenate(s...)::String = join([s...])
+
+"Returns the unique characters of the provided string as a new string, in order of occurrence"
+uniq(s::String) = join(Set(s))
+
+"Converts a string that uses space separator to a string that uses _ separator"
+snake_case(s::String) = join(split(s), '_')
+
+"Returns a map where each letter of the string as key and occurrencies in map as value"
+function count_letters(s::String)::Dict{String, Int64}
+    # map = {}
+end
+
 
 end # module
