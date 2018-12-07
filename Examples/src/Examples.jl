@@ -25,6 +25,7 @@ map(double, 1:10)
 1 ≤ 2 # function <= implemented as ≤
 [1,2,3] ⊆ [1,2,3,4,5] # ⊆ defines the function, "is subset"
 π # pi is defined as the symbol π (regular `pi` could also be used)
+# These chars can be aquired by writing \pi <tab> into the REPL
 
 # Not all mathematical symbols are predefined in julia, however if
 # you would like to use one, julia allows unicode which means
