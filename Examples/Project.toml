@@ -1,0 +1,6 @@
+authors = ["Linus <linus.lagerhjelm@gmail.com>"]
+name = "Examples"
+uuid = "f3e07ea8-f9fc-11e8-2c47-6995c4ac5626"
+version = "0.1.0"
+
+[deps]
