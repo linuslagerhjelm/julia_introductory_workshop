@@ -19,6 +19,7 @@
         @test Introduction.snake_case(str) == "this_is_a_string"
         @test Introduction.snake_case("  this is a string ") == "this_is_a_string"
         
-        # @test Introduction.count_letters(str) == {""}
+        @test Introduction.count_letters("abc") == Dict('a' => 1, 'b' => 1, 'c' => 1)
+        @test Introduction.count_letters("aacbbcbbc") == Dict('a' => 2, 'b' => 4, 'c' => 3)
     end
 end

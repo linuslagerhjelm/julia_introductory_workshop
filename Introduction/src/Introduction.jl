@@ -43,8 +43,8 @@ uniq(s::String) = join(Set(s))
 snake_case(s::String) = join(split(s), '_')
 
 "Returns a map where each letter of the string as key and occurrencies in map as value"
-function count_letters(s::String)::Dict{String, Int64}
-    # map = {}
+function count_letters(s::String)::Dict{Char, Int64}
+    Dict(i => count(x-> x == i, s) for i in unique(s))
 end
 
 
