@@ -2,7 +2,7 @@
 "A module to be implemented by the attendees of the Julia workshop"
 module Introduction
 
-using HTTP
+using HTTP, CSV, DataFrames
 export Node
 
 "Adds a one to the provided argument"
@@ -114,5 +114,36 @@ function max_dist(nodes::Vector{})::Tuple{Float64, Node, Node}
     end
     (max, n1, n2)
 end
+
+"Reads the CSV file into a dataframe.
+Hint: https://github.com/JuliaData/CSV.jl
+Hint: https://github.com/JuliaData/DataFrames.jl"
+read_csv(s::String)::DataFrame = CSV.read(s)
+
+"Returns a dictionary containing the fraction of males and femails respectively"
+function gender_dist(df::DataFrame)::Dict{String, Float64}
+    male = count(s -> s == "male", df.gender)
+    female = count(s -> s == "female", df.gender)
+    Dict("male" => male / (male + female), "female" => female / (male + female))
+end
+
+"Computes which group from the group column that, on average, has the highest math score"
+mean(v::Vector{T}) where T = sum(v) / length(v)
+function highest_math(df::DataFrame)::String
+    means = [(group, mean(df[df[2] .== group, 6])) for group in unique(df[2])]
+    max((x1, x2) -> x1[2] > x2[2], means)[1]
+end
+
+"Turns a categorical vector into its one hot encoded correspondance
+see: https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science"
+function oh_encode(values::Vector{String})::Vector{Vector{Int}}
+    idx = [findfirst(s -> s == v, unique(values)) for v in values]
+    out = [zeros(Int, maximum(idx)) for _ in 1:length(idx)]
+    for (i, v) in enumerate(idx)
+        out[i][v] = 1
+    end
+    return out
+end
+
 
 end # module
