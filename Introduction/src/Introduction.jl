@@ -22,6 +22,10 @@ function in_range(x::Array{T}, bounds...) where T <: Number
     lower .<= x .< upper
 end
 
+"This function implements part of the classical problem  FizzBuzz (https://en.wikipedia.org/wiki/Fizz_buzz). 
+Provided a number, it returns the correct string for the problem."
+fizzbuzz(n::Integer)::String = if (n % 3 == 0 && n % 5 == 0) "FizzBuzz" elseif n % 3 == 0 "Fizz" elseif n % 5 == 0 "Buzz" else "$(n)" end
+
 "Converts a string to an array of characters"
 to_char_array(s::String)::Vector{Char} = [s...]
 
