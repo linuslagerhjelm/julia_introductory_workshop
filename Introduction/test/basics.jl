@@ -1,3 +1,8 @@
+struct Person
+    age::Int
+    name::String
+end
+
 @testset "Basics" begin
     @testset "Multiple dispatch" begin
         @test Introduction.add1(1) == 2
@@ -27,5 +32,21 @@
         @test Introduction.fizzbuzz(5) == "Buzz"
         @test Introduction.fizzbuzz(15) == "FizzBuzz"
         @test Introduction.fizzbuzz(39873498537492378438953498541) == "Fizz"
+    end
+
+    @testset "Max" begin
+        people = [
+            Person(10, "😃")
+            Person(15, "😇")
+            Person(25, "😍")
+            Person(-25, "😉")
+        ]
+
+        strings = ["some string", "another string", "third string", "last string"]
+
+        @test Introduction.max(>, [1 2 3]) == 3
+        @test Introduction.max(>, strings) == "third string"
+        @test Introduction.max((p1, p2) -> p1.age > p2.age, people) == Person(25, "😍")
+        @test_throws MethodError Introduction.max(1)
     end
 end

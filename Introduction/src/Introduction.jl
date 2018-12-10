@@ -2,8 +2,8 @@
 module Introduction
 
 "Adds a one to the provided argument"
-add1(x::Number) = x + 1
-add1(x::Array{T}) where T <: Number = x .+ 1
+    add1(x::Number) = x + 1
+    add1(x::Array{T}) where T <: Number = x .+ 1
 
 "Performs the division between x and why where x is numerator and y is 
 denominator but returns the answer truncated to 0 decimals"
@@ -20,6 +20,16 @@ function in_range(x::Array{T}, bounds...) where T <: Number
     lower = length(bounds) < 2 ? 0 : bounds[1]
     upper = bounds[end]
     lower .<= x .< upper
+end
+
+"Finds the largest value in the provided container using the provided function
+This function assumes that the provided container contains at least one element"
+function max(f::Function, x::T) where T <: AbstractArray
+    largest = x[1]
+    for v in x
+        largest = if f(v, largest) v else largest end
+    end
+    return largest
 end
 
 "This function implements part of the classical problem  FizzBuzz (https://en.wikipedia.org/wiki/Fizz_buzz). 
