@@ -72,6 +72,10 @@ function count_letters(s::String)::Dict{Char, Int64}
     Dict(i => count(x-> x == i, s) for i in unique(s))
 end
 
+"Turns a string into a list of the corresponding bits"
+# Implementation
+to_bit_list(s::String)::Vector{Int} = [parse(Int, c) for c in join([bitstring(Int8(c)) for c in s])]
+
 
 struct Node
     id::Int
