@@ -1,4 +1,4 @@
-module Application
+module Tickify
 
 greet() = print("Hello World!")
 
