@@ -89,4 +89,26 @@ function parse_nodes(url::String)
     [Node(line) for line in lines]
 end
 
+"Computes the euclidian distance between two nodes"
+dist(n1::Node, n2::Node)::Float64 = sqrt((n1.x - n2.x)^2 + (n1.y - n2.y)^2)
+
+"Finds the maximum distance between two nodes and returns a tuple containing 
+the distance and the two nodes in question"
+function max_dist(nodes::Vector{})::Tuple{Float64, Node, Node}
+    max = 0
+    n1::Node = nodes[1]
+    n2::Node = nodes[2]
+    for i in 1:length(nodes)
+        for j in i:length(nodes)
+            d = dist(nodes[i], nodes[j])
+            if d > max
+                max = d
+                n1 = nodes[i]
+                n2 = nodes[j]
+            end
+        end
+    end
+    (max, n1, n2)
+end
+
 end # module
