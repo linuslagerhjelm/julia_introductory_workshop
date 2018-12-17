@@ -17,7 +17,7 @@ This repository contains three parts:
 
 ### Basic concepts
 
-Read through the document [Examples.jl](Examples.js) to get an introduction of how coding in Julia works.
+Read through the document [Examples.jl](Examples.jl) to get an introduction of how coding in Julia works.
 
 ### Basic exercises
 
@@ -30,7 +30,7 @@ to enter `pkg` mode. In this mode, write `activate .` to activate the project, f
 
 ### Real world application
 
-This task is quite similar to the previous task: Start by reading through the [introduction](Tickify/introduction.md) and make the unit tests pass.
+This task is quite similar to the previous task: Start by reading through the [introduction](Tickify/Introduction.md) and make the unit tests pass.
 However, the test coverage for this application is not that great so feel free to add more tests if needed. Or add features without adding tests,
 for example database access, http requests file IO and what not.
 
