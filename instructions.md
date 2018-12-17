@@ -55,6 +55,6 @@ the global julia installation.
 
 2. Download and install julia version [https://julialang.org/downloads/oldreleases.html](0.6)
 
-3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia)
+3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia`)
 
 4. Restart vscode
