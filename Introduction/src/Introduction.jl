@@ -43,7 +43,8 @@ end
 "This function implements part of the classical problem  FizzBuzz (https://en.wikipedia.org/wiki/Fizz_buzz). 
 Provided a number, it returns the correct string for the problem."
 # Implementation
-fizzbuzz(n::Integer)::String = if (n % 3 == 0 && n % 5 == 0) "FizzBuzz" elseif n % 3 == 0 "Fizz" elseif n % 5 == 0 "Buzz" else "$(n)" end
+fizzbuzz(n::Integer)::String = if (n % 3 == 0 && n % 5 == 0) "FizzBuzz" elseif n % 3 == 0 "Fizz" elseif n % 5 == 0 "Buzz" else "$n" end
+fizzbuzz(n::T) where T <: Number = "$n"
 
 "Converts a string to an array of characters"
 # Implementation

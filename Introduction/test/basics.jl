@@ -32,6 +32,11 @@ end
         @test Introduction.fizzbuzz(5) == "Buzz"
         @test Introduction.fizzbuzz(15) == "FizzBuzz"
         @test Introduction.fizzbuzz(39873498537492378438953498541) == "Fizz"
+
+        # I'm not entirely sure that fizzbuzz is defined for floating points or complex numbers
+        # but why not go ahead and handle those cases just because we can.
+        @test Introduction.fizzbuzz(3.14) == "3.14"
+        @test Introduction.fizzbuzz(sqrt(Complex(-1))) == "0.0 + 1.0im"
     end
 
     @testset "Max" begin
