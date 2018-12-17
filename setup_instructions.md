@@ -27,16 +27,6 @@ atreplinit() do repl
 end
 ```
 
-## Configure vscode (optional)
-
-1. Install the julia language support extension to vscode
-
-2. Download and install julia version [https://julialang.org/downloads/oldreleases.html](0.6)
-
-3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia)
-
-4. Restart vscode
-
 ## Create a new project
 
 When everything above is done, one can create a new project as follows:
@@ -60,3 +50,13 @@ activate .
 This will create a new package space for this pkg instance. Meaning that
 every package you add from here, will only be added to this project and not to
 the global julia installation.
+
+## Configure vscode (optional)
+
+1. Install the julia language support extension to vscode
+
+2. Download and install julia version [https://julialang.org/downloads/oldreleases.html](0.6)
+
+3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia`)
+
+4. Restart vscode
