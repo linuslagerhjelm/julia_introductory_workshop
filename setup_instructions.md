@@ -27,28 +27,6 @@ atreplinit() do repl
 end
 ```
 
-## Create a new project
-
-Start julia and enter `pkg` mode, type:
-
-```shell
-generate Introduction
-```
-
-This creates a new project folder called Introduction with a set of basic
-project files.
-
-While still in julia, press ; to enter `shell` mode and cd into the newly
-created directory. When there, enter `pkg` mode again and type:
-
-```shell
-activate .
-```
-
-This will create a new package space for this pkg instance. Meaning that
-every package you add from here, will only be added to this project and not to
-the global julia installation.
-
 ## Configure vscode (optional)
 
 1. Install the julia language support extension to vscode
@@ -58,3 +36,27 @@ the global julia installation.
 3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia)
 
 4. Restart vscode
+
+## Create a new project
+
+When everything above is done, one can create a new project as follows:
+
+Start julia and enter `pkg` mode, type:
+
+```shell
+generate MyProject
+```
+
+This creates a new project folder called MyProject with a set of basic
+project files.
+
+While still in julia, press ; to enter `shell` mode and `cd` into the newly
+created directory. When there, enter `pkg` mode again and type:
+
+```shell
+activate .
+```
+
+This will create a new package space for this pkg instance. Meaning that
+every package you add from here, will only be added to this project and not to
+the global julia installation.
