@@ -7,7 +7,7 @@ have this brilliant new idea that is going to change the world.
 The core business of Tickify is a ticket service that lets organizers publish tickets to their events in order to
 allow users to buy said tickets. Although this may sound like just another ticket service, Tickify uses all the
 latest and greatest in tech to deliver its unique twist, its system features a unique Machine Learning solution
-that will find the best possible tickets optimized on various criteria such as prize and quality. In future releases
+that will dynamically adapt the price of the tickets and select the ticket with the best price. In future releases
 all ticket transactions will also be added to the block chain and the tickets can also (for an additional fee)
 be delivered as a VR copy instead of just your regular boring PDF copy.
 
