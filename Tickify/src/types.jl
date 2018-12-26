@@ -1,27 +1,36 @@
 using AutoHashEquals
 
 @enum Segment begin
-    Royal
-    Premium
-    Standard
     Economy
+    Standard
+    Premium
+    Royal
 end
-@auto_hash_equals struct Seat
-    number::UInt
+@auto_hash_equals mutable struct Seat
+    number::Int
     segment::Segment
-    price::Float64
     taken::Bool
 end
 @auto_hash_equals struct Event
+    name::String
     adult::Bool
-    seats::Set{Seat}
+    organizer::String
+    seats::Vector{Seat}
 end
-@auto_hash_equals struct Order
-    event::Event
+Base.deepcopy(e::Event)::Event = deepcopy_event(e)
+function deepcopy_event(e::Event)::Event
+    seats = Vector{Seat}(undef, length(e.seats))
+    for i in 1:length(e.seats)
+        seat = e.seats[i]
+        seats[i] = Seat(seat.number, seat.segment, seat.taken)
+    end
+    Event(e.name, e.adult, e.organizer, seats)
 end
+
 @auto_hash_equals struct Ticket
-    seat::Seat
-    event::Event
+    seat::Int
+    price::Float64
+    event::String
 end
 
 abstract type User end
