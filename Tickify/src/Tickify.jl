@@ -55,6 +55,7 @@ function buy_ticket!(event::Event, segment::Segment, visitor::Visitor)::Optional
     free, taken = split_seats(event.seats)
     price = (length(event.seats) / length(free)) * (Int(segment) + 1) * 100
     free_in_segment = get_best_segment(free, segment)
+    
     ticket = if length(free) > 0
         free_in_segment[1].taken = true
         Ticket(free_in_segment[1].number, price, event.name) 

@@ -33,14 +33,14 @@ using Tickify
         event = create_event("OpKoKo", true, organizer, premium=50, standard=100)
 
         function bought_seats_are_unavailable()
-            local_event = create_event("OpKoKo", true, organizer, premium=50, standard=100)
+            local_event = deepcopy(event)
             buy_ticket!(local_event, Standard, visitor)
             free = filter(seat -> !seat.taken, local_event.seats)
             length(free) == 149
         end
 
         function all_sold()
-            local_event = create_event("OpKoKo", true, organizer, premium=50, standard=100)
+            local_event = deepcopy(event)
             for seat in local_event.seats seat.taken = true end
 
             ticket = buy_ticket!(local_event, Standard, visitor)
@@ -48,7 +48,7 @@ using Tickify
         end
 
         function all_sold_segment()
-            local_event = create_event("OpKoKo", true, organizer, premium=50, standard=100)
+            local_event = deepcopy(event)
             for seat in local_event.seats
                 if seat.segment == Standard
                     seat.taken = true
@@ -58,8 +58,8 @@ using Tickify
             ticket == Ticket(1, 900.0, "OpKoKo")
         end
 
-        @test buy_ticket!(event, Standard, visitor) == Ticket(51, 200.0, "OpKoKo")
-        @test buy_ticket!(event, Premium, visitor) == Ticket(1, 300.0, "OpKoKo")
+        @test buy_ticket!(deepcopy(event), Standard, visitor) == Ticket(51, 200.0, "OpKoKo")
+        @test buy_ticket!(deepcopy(event), Premium, visitor) == Ticket(1, 300.0, "OpKoKo")
         @test all_sold()
         @test all_sold_segment()
         @test bought_seats_are_unavailable()
