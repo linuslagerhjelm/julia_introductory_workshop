@@ -20,3 +20,10 @@ expensive.
 This is where you come in. Tickify has hired you as consultants to complete the matching functionality. All
 you have to do is to make sure that all the tests are passing before the end of the sprint. Also, no preassure
 but if the feature is not complete on time, the firm will go bankrupt, which would be a great loss to the world.
+
+When that is done, you could of course extend the application to expose the business logic through a rest API
+and save users and tickets and events and what not into a database. Usefull links:
+
+- [https://github.com/essenciary/Genie.jl](https://github.com/essenciary/Genie.jl) (Web framework)
+- [https://github.com/felipenoris/Mongoc.jl](https://github.com/felipenoris/Mongoc.jl) (MongoDB library)
+- [https://github.com/svaksha/Julia.jl/blob/master/DataBase.md#mysql](https://github.com/svaksha/Julia.jl/blob/master/DataBase.md#mysql) (SQL Libraries)
