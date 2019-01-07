@@ -55,7 +55,7 @@ using Tickify
                 end
             end
             ticket = buy_ticket!(local_event, Standard, visitor)
-            ticket == Ticket(1, 900.0, "OpKoKo")
+            ticket == Ticket(1, 600.0, "OpKoKo")
         end
 
         @test buy_ticket!(deepcopy(event), Standard, visitor) == Ticket(51, 200.0, "OpKoKo")

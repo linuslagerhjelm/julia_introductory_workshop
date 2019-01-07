@@ -41,17 +41,14 @@ end
 get_segment(seats::Vector{Seat}, segment::Segment) = filter(seat -> seat.segment == segment, seats)
 function get_best_segment(seats::Vector{Seat}, segment::Segment)
     free = get_segment(seats, segment)
-    if length(free) == 0
-        
-    end
-    return free
+    if length(free) > 0 free else seats end
 end
 function buy_ticket!(event::Event, segment::Segment, visitor::Visitor)::Optional{Ticket}
     # The price is computed as "# of seats" / "# of available seats" * (segment type) + 1 * 100
     # The seat is selected as the first available seat that matches the segment preference
-    # If there are no tickets left in the specified segment, it will try to match the closest
-    # segment above until the top. If all that fails it matches the most expensive segment downwards
-    # E.g., if Premium is specified it will match: Royal, Standard, Economy.
+    # If there are no tickets left in the specified segment, it will simply pick the first
+    # available seat (which is at the same time the easiest to implement and a sneaky tactic
+    # to earn more money by selling from the most expensive segment first).
     free, taken = split_seats(event.seats)
     price = (length(event.seats) / length(free)) * (Int(segment) + 1) * 100
     free_in_segment = get_best_segment(free, segment)
