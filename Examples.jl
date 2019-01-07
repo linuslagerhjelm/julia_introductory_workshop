@@ -1,4 +1,8 @@
 
+# This document is intended to introduce basic concepts in Julia using examples
+# The code could be copy and pasted into the REPL to display the result
+# and allow for experimentation.
+
 # This is how we define a module
 module Examples
 
