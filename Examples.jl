@@ -27,13 +27,13 @@ map(double, 1:10) |> println
 # Note how we did not need to specify * in the previous example.
 
 # This is because julia recognizes the math syntax and assumes 
-# that we want to do multiplication. It also does neat things
+# that we want to do multiplication. It also does other neat things
 # to make it easy to write math expressions:
 
 1 ≤ 2 # function <= implemented as ≤
 [1,2,3] ⊆ [1,2,3,4,5] # ⊆ defines the function, "is subset"
 π # pi is defined as the symbol π (regular `pi` could also be used)
-# These chars can be aquired by typing \pi <tab> into the REPL
+# Pi and similar chars can be aquired by typing \pi <tab> into the REPL
 
 # Not all mathematical symbols are predefined in julia. However if
 # you would like to use one that is not, julia allows unicode 
@@ -71,6 +71,11 @@ struct Adult <: Person
     name::String
 end
 
+# Much like in C++ or Python or other languages, Julia supports
+# Operation overloading:
+Base.:<(p1::Adult, p2::Adult) = p1.age < p2.age
+Adult(23, "Linus") < Adult(72, "Mr. Trump")
+
 # If we want to define a function that instantiates our new type, it can be done as follows.
 # Due to the fact that abstract types are also objects, we can not declare the function as 
 # returning a person, instead we must return a generic type and specify that it will be
@@ -87,7 +92,7 @@ v = Array{Int, 1}()
 
 # There are no methods in julia, instead, functions are defined as operating on different
 # types. The exact function is chosen using the multiple dispatch system. Using ! at the end
-# of a method name is a convention in julia to indicate that it will change one or more
+# of a method name is a convention in julia to indicate that it will change one or more of
 # its areguments. In this case, it will append 1 to v.
 push!(v, 1)
 
@@ -95,10 +100,11 @@ push!(v, 1)
 # using the splat operator:
 v1 = [v..., 1]
 
-# In the statement above, Array{Int, 1}, we provide 1 to declare a 1-dimentional array.
-# This is generalized and by replacing 1 with an arbitrary value n we can produce an
-# n-dimentional array. However, most often in practice, only 1D and 2D arrays are
-# needed and for convencience, julia provides alias for Array{Int, 1} & Array{Int, 2}
+# In the statement above, Array{Int, 1}, we provide 1 (Array{Int, 1}) to declare a 
+# 1-dimentional array. This is generalized and by replacing 1 with an arbitrary 
+# value n we can produce an n-dimentional array. However, most often in practice, 
+# only 1D and 2D arrays are needed and for convencience, julia provides alias for 
+# Array{Int, 1} & Array{Int, 2}
 v = Vector{Int}() # Create empty 1D - array
 m = Matrix{Int}(undef, 10, 10) # Creates a 10x10 matrix (2D - array)
 
@@ -113,7 +119,7 @@ for j = 1:size(m,2) # size() returns an n-tuple with the size for each dimention
     end
 end
 
-# Oh and by the way, Julia, like most other reasonable languages, start indexing at 1 and not 0.
+# Oh and by the way, Julia, like other reasonable languages, start indexing at 1 and not 0.
 
 # Notice that we can reasign a variable to anything we like, this is because,
 # variables does not have types, only values have a type.
