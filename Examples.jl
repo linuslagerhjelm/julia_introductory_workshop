@@ -108,6 +108,12 @@ v1 = [v..., 1]
 v = Vector{Int}() # Create empty 1D - array
 m = Matrix{Int}(undef, 10, 10) # Creates a 10x10 matrix (2D - array)
 
+# Array litterals are of course supported in Julia although slightly different than
+# other languages as they are more similar to MATLAB: 
+arr_r = [1 2 3 4 5] # Creates a row vector
+arr_c = [1, 2, 3, 4, 5] # Creates a column vector, functionally equivalent to `transpose(arr_c)`
+mat = [1 2 3; 4 5 6] # Creates a 2x3 matrix
+
 # Indexing a matrix in julia is more similar to MATLAB than other languages.
 # Julia is column major so in order to efficiently iterate a matrix,
 # one need to flip the i and j loop variables
