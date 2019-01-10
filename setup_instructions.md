@@ -31,7 +31,7 @@ end
 
 1. Install the julia language support extension to vscode
 
-2. Download and install julia version [https://julialang.org/downloads/oldreleases.html](0.6)
+2. Download and install julia version 0.6 [https://julialang.org/downloads/oldreleases.html](0.6)
 
 3. Point the extension to the 0.6 binary by setting the "julia.executablePath" option in settings (for mac this would be: `/path/to/Julia-0.6.app/Contents/Resources/julia/bin/julia`)
 
